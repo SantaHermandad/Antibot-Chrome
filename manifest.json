@@ -1,15 +1,32 @@
 {
-  "manifest_version": 2,
-  "name": "Antibot-Chrome",
+  "name": "Antibot Chrome",
   "version": "0.1",
-  "description": "No Bots.",
-  "icons": { "128": "icon_128.png" },
+  "manifest_version": 2,
+  "description": "Context menu to Youtube user to open 'about' page.",
   "background": {
+    "scripts": ["background.js"],
     "persistent": false
   },
-  "permissions": ["http://*.google.com/", "https://*.google.com/"],
-  "browser_action": {
-    "default_title": "",
-    "default_popup": "popup.html"
+  "page_action" :
+  {
+    "default_icon" : "images/icon-19.png",
+    "default_title" : "Context menu to Youtube user to open 'about' page."
+  },
+  "permissions" : [
+    "declarativeContent",
+    "activeTab",
+	"contextMenus"
+  ],
+  "content_scripts":
+  [
+      {
+          "matches": ["*://*.youtube.com/*"],
+          "js": ["content.js"],
+          "run_at": "document_end"
+      }
+  ],
+  "icons" : {
+    "48" : "images/icon-48.png",
+    "128" : "images/icon-128.png"
   }
 }
