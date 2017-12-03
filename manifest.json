@@ -1,4 +1,5 @@
 {
+  "manifest_version": 2,
   "name": "Antibot-Chrome",
   "version": "0.1",
   "description": "No Bots.",
